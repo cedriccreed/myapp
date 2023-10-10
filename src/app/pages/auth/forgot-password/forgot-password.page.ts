@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
 
@@ -15,26 +16,29 @@ export class ForgotPasswordPage implements OnInit {
   })
 
   constructor(
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) {}
 
   async submit() {
     if (this.form.valid) {
-      // Aquí puedes realizar la lógica para recuperar la contraseña.
-      // Por ahora, solo mostraremos una alerta de ejemplo.
       const alert = await this.alertController.create({
         header: 'Recuperar contraseña',
         message: 'Se ha enviado un correo de recuperación a ' + this.form.value.email,
-        buttons: ['OK'],
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              // Redirige a la página de inicio de sesión
+              this.router.navigate(['/auth']); // Ajusta la ruta según tu configuración
+            },
+          },
+        ],
       });
 
       await alert.present();
     }
   }
 
-  ngOnInit() {
-  }
-  
-
-
+  ngOnInit() {}
 }

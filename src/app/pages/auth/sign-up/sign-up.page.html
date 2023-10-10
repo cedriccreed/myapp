@@ -1,7 +1,215 @@
 <app-header title="FIRE"></app-header>
+<ion-content class="ion-padding">
+  <div class="ion-text-center"> 
+    <div class="ion-text-center"> 
 
-<div class="d-flex-center">
+      <ion-text color="danger">
+        <ion-icon class="flame-icon" color="danger" name="flame-outline"></ion-icon>
+        <h1>Bienvenido (a)</h1>
+      </ion-text>
 
-<ion-button  expand="block" mode="ios" class="submit" type="submit">HOLA</ion-button>
+      <ion-text color="dark">
+        <h2><strong>Formulario</strong></h2>
+        <h3><strong>1.Motor</strong></h3>
+      </ion-text>
 
-</div>
+      <ion-grid>
+
+        <!-- Seccion Motor-->
+
+        <!-- Nivel de Combustible -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Nivel de Combustible</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> 
+            <form (ngSubmit)="submitForm()" #nivelCombustibleForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.nivelCombustible" name="nivelCombustible" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Funcionamiento Irregular del Motor -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Func. Irregular Motor</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> 
+            <form (ngSubmit)="submitForm()" #motorIrregularForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.motorIrregular" name="motorIrregular" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Estado Filtro de Aire -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Estado Filtro de Aire</p>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <form (ngSubmit)="submitForm()" #filtroAireForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.estadoFiltroAire" name="estadoFiltroAire" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Nivel de Aceite del Motor -->
+        <ion-row>
+          <ion-col size="6"> <!-- Columna izquierda para la etiqueta -->
+            <div class="ion-text-center">
+              <p>Nivel Aceite Motor</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> <!-- Columna derecha para el select y el valor seleccionado -->
+            <form (ngSubmit)="submitForm()" #aceiteMotorForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.nivelAceiteMotor" name="nivelAceiteMotor" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Funcionamiento Tablero de Instrumentos -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Func.Tablero Instrumentos</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> 
+            <form (ngSubmit)="submitForm()" #tableroInstrumentosForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.funcionamientoTablero" name="funcionamientoTablero" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Nivel Refrigerante -->
+        <ion-row>
+          <ion-col size="6"> <!-- Columna izquierda para la etiqueta -->
+            <div class="ion-text-center">
+              <p>Nivel Refrigerante</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> <!-- Columna derecha para el select y el valor seleccionado -->
+            <form (ngSubmit)="submitForm()" #refrigeranteForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.nivelRefrigerante" name="nivelRefrigerante" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <ion-text color="dark">
+          <h3><strong>2.Transmision y Tren Motriz</strong></h3>
+        </ion-text>
+
+         <!-- Seccion Transmision y Tren Motriz -->
+
+        <!-- Nivel de Aceite (Transmision Automatica) -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Nivel de Aceite (Transmisión Automática)</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> 
+            <form (ngSubmit)="submitForm()" #aceiteTransmisionForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.nivelAceiteTransmision" name="nivelAceiteTransmision" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <!-- Revisar Fugas de Aceite y/o Aire -->
+        <ion-row>
+          <ion-col size="6"> 
+            <div class="ion-text-center">
+              <p>Revisar Fugas de Aceite y/o Aire</p>
+            </div>
+          </ion-col>
+          <ion-col size="6"> 
+            <form (ngSubmit)="submitForm()" #fugasAceiteAireForm="ngForm">
+              <ion-list>
+                <ion-item>
+                  <ion-select [(ngModel)]="opciones.revisarFugasAceiteAire" name="revisarFugasAceiteAire" required>
+                    <ion-select-option value="bueno">Bueno</ion-select-option>
+                    <ion-select-option value="malo">Malo</ion-select-option>
+                    <ion-select-option value="noAplica">No Aplica</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+
+        <ion-text color="dark">
+          <h3><strong>3.Sistema de Frenos</strong></h3>
+        </ion-text>
+
+        <!-- Botón centrado -->
+        <ion-button type="submit" class="center-button" (click)="submitForm()">Guardar</ion-button>
+
+        <!-- Botón centrado -->
+        <ion-button routerLink="/auth" type="submit" class="center-button" (click)="submitForm()">Cerrar Sesion</ion-button>
+
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
